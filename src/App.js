@@ -6,7 +6,7 @@ import BookGallery from './components/BookGallery';
 import SearchableGallery from './components/SearchableGallery';
 
 const App = (props) => {
-  const types = ['All', 'Fiction', 'History'];
+  const types = ['All', 'Fiction', 'History', 'Fantassy', 'Art', 'Religion'];
   const navBar = types.map((type) => (
     <NavLink to={`/library/${type}`} activeClassName="activeLink" key={type}>
       {type}
@@ -14,14 +14,15 @@ const App = (props) => {
   ));
   return (
     <BrowserRouter>
+      <h1>Library</h1>
       <div>
-        <div>{navBar}</div>
+        <div style={{ borderBottom: '1px solid grey' }}>{navBar}</div>
         <Switch>
           <Route exact path="/library/All">
-            <BookGallery bookList={data.default.slice(0, 5)} />
+            <BookGallery bookList={data.default} />
           </Route>
           <Route exact path="/library/:type">
-            <SearchableGallery bookList={data.default.slice(0, 5)} />
+            <SearchableGallery bookList={data.default} />
           </Route>
         </Switch>
       </div>

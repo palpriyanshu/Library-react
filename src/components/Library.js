@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import BookGallery from './BookGallery';
+import FilteredGallery from './FilteredGallery';
 import SearchableGallery from './SearchableGallery';
 import Header from './Header';
 import NavBar from './NavBar';
@@ -11,11 +11,11 @@ const Library = ({ data, types }) => {
       <Header />
       <NavBar types={types} />
       <Switch>
-        <Route exact path="/library/All">
-          <BookGallery bookList={data.default} />
-        </Route>
-        <Route exact path="/library/:type">
+        <Route exact path="/private/category/All">
           <SearchableGallery bookList={data.default} />
+        </Route>
+        <Route exact path="/private/category/:type">
+          <FilteredGallery bookList={data.default} />
         </Route>
       </Switch>
     </div>

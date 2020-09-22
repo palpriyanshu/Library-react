@@ -1,13 +1,33 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import BookGallery from './BookGallery';
+import BookGallery from './BookGallery.js';
 
-const SearchableGallery = (props) => {
-  const { type } = useParams();
-  const filteredBooks = props.bookList.filter(({ Genre }) =>
-    Genre.includes(type)
-  );
-  return <BookGallery bookList={filteredBooks} />;
-};
+class SearchableGallery extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { searchTerm: '' };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    const searchTerm = event.target.value;
+    this.setState(() => ({ searchTerm }));
+  }
+
+  filteredGallery(bookList) {
+    return bookList.filter(({ title }) =>
+      title.toLowerCase().includes(this.state.searchTerm.toLowerCase())
+    );
+  }
+
+  render() {
+    const filteredList = this.filteredGallery(this.props.bookList);
+    return (
+      <div>
+        <input onChange={this.handleChange} value={this.state.searchTerm} />
+        <BookGallery className={this.props.className} bookList={filteredList} />
+      </div>
+    );
+  }
+}
 
 export default SearchableGallery;

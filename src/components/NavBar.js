@@ -3,7 +3,11 @@ import { NavLink } from 'react-router-dom';
 
 const NavBar = (props) => {
   const navBar = props.types.map((type) => (
-    <NavLink to={`/library/${type}`} activeClassName="activeLink" key={type}>
+    <NavLink
+      to={`/private/category/${type}`}
+      activeClassName="activeLink"
+      key={type}
+    >
       {type}
     </NavLink>
   ));

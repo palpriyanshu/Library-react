@@ -15,7 +15,7 @@ const Book = (props) => {
         value={name}
       >
         <img src={img.thumbnail} alt={name} />
-        <Link to={`/detail/${name}`}>{name.toUpperCase()}</Link>
+        <Link to={`/private/detail/${name}`}>{name.toUpperCase()}</Link>
       </div>
     </div>
   );

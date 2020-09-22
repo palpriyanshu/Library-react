@@ -1,9 +1,10 @@
 import React from 'react';
+import Header from './Header';
 
 const LogIn = (props) => {
   return (
     <button>
-      <a href="http://localhost:3002/api/authenticate">Get started</a>
+      <a href="http://localhost:3002/api/authenticate">Log In</a>
     </button>
   );
 };
@@ -11,6 +12,7 @@ const LogIn = (props) => {
 const HomePage = (props) => {
   return (
     <div>
+      <Header />
       <p>
         spend less time searching so you can spend more time actually reading!
       </p>

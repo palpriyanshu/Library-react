@@ -23,7 +23,11 @@ class SearchableGallery extends React.Component {
     const filteredList = this.filteredGallery(this.props.bookList);
     return (
       <div>
-        <input onChange={this.handleChange} value={this.state.searchTerm} />
+        <input
+          onChange={this.handleChange}
+          value={this.state.searchTerm}
+          style={{ margin: '20px' }}
+        />
         <BookGallery className={this.props.className} bookList={filteredList} />
       </div>
     );

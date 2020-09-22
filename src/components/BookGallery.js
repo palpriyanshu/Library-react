@@ -6,7 +6,7 @@ const BookGallery = function (props) {
     <Book key={details.id} details={details} />
   ));
 
-  return <div style={{ display: 'flex', flexWrap: 'wrap' }}>{books}</div>;
+  return <div className="bookGallery">{books}</div>;
 };
 
 export default BookGallery;

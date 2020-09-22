@@ -5,15 +5,7 @@ const Book = (props) => {
   const { title: name, imageUrl: img } = props.details;
   return (
     <div>
-      <div
-        style={{
-          padding: '10px',
-          textAlign: 'center',
-          width: '100px',
-          margin: '15px',
-        }}
-        value={name}
-      >
+      <div className="book" value={name}>
         <img src={img.thumbnail} alt={name} />
         <Link to={`/private/detail/${name}`}>{name.toUpperCase()}</Link>
       </div>

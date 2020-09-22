@@ -3,36 +3,34 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import * as data from './booksDetails.json';
 import BookDetail from './components/BookDetail.js';
+import Header from './components/Header';
+import withProfile from './components/withProfile';
+import LogIn from './components/LogIn';
 import Library from './components/Library';
 import HomePage from './components/HomePage';
 import { fetchApis } from './fetchApis';
 
-const LogIn = (props) => {
-  return (
-    <button>
-      <a href="http://localhost:3002/api/authenticate">Log In with Github</a>
-    </button>
-  );
-};
+const HeaderWithAvatar = ({ avatar }) => withProfile(Header, avatar);
 
 const App = (props) => {
   const types = ['All', 'Fiction', 'History', 'Fantassy', 'Art', 'Religion'];
-  const [isLoggedIn, setUser] = useState(false);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetchApis.isUserLoggedIn().then(setUser);
-  }, [isLoggedIn]);
+    fetchApis.getUser().then(setUser);
+  }, []);
 
   return (
     <BrowserRouter basename="/library">
       <div>
+        {user ? (
+          <HeaderWithAvatar avatar={user.avatarUrl} />
+        ) : (
+          <Header className="borderBottom" />
+        )}
         <Switch>
           <Route exact path="/">
-            {!isLoggedIn ? (
-              <HomePage />
-            ) : (
-              <Redirect to="/private/category/All" />
-            )}
+            {!user ? <HomePage /> : <Redirect to="/private/category/All" />}
           </Route>
           <Route path="/private/category">
             <Library data={data} types={types} />

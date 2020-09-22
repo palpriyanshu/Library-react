@@ -1,13 +1,13 @@
 import React from 'react';
 import logo from '../logo.jpeg';
 
-const Header = (props) => (
-  <div style={{ display: 'flex', borderBottom: '1px solid grey' }}>
-    <img src={logo} alt="logo" style={{ width: '100px', height: '50px' }} />
-    <div style={{ textAlign: 'center', fontSize: '40px', paddingLeft: '20px' }}>
-      Library
+const Header = (props) => {
+  return (
+    <div style={{ display: 'flex' }} className={props.className}>
+      <img src={logo} alt="logo" className="logo" />
+      <div className="appName">Library</div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Header;

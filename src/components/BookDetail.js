@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import Header from './Header';
 
 const BookDetail = ({ bookList }) => {
   const { title } = useParams();
@@ -31,16 +30,10 @@ const BookDetail = ({ bookList }) => {
   ));
   return (
     <div>
-      <Header />
-      <div style={{ display: 'flex', margin: '20px' }}>
-        <img
-          src={imageUrl.thumbnail}
-          alt="bookImage"
-          style={{ marginRight: '20px', width: '150px', height: '200px' }}
-        />
+      <div className="bookDetail">
+        <img src={imageUrl.thumbnail} alt="bookImage" className="bookImage" />
         <div>
-          <h3>{title}</h3>
-          {bookInfo}
+          <h3>{title}</h3> {bookInfo}
         </div>
       </div>
     </div>

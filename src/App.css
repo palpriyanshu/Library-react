@@ -68,3 +68,23 @@ a {
   display: flex;
   flex-wrap: wrap;
 }
+
+.dropDown {
+  border: 1px solid #aaa;
+  cursor: pointer;
+}
+.dropDown > div {
+  border-bottom: 1px solid #aaa;
+}
+
+.dropDown > div:hover {
+  background-color: #ccc;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.show {
+  visibility: visible;
+}

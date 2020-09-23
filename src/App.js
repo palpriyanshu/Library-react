@@ -10,7 +10,8 @@ import Library from './components/Library';
 import HomePage from './components/HomePage';
 import { fetchApis } from './fetchApis';
 
-const HeaderWithAvatar = ({ avatar }) => withProfile(Header, avatar);
+const HeaderWithAvatar = ({ avatar, setUser }) =>
+  withProfile(Header, avatar, setUser);
 
 const App = (props) => {
   const types = ['All', 'Fiction', 'History', 'Fantassy', 'Art', 'Religion'];
@@ -18,28 +19,28 @@ const App = (props) => {
 
   useEffect(() => {
     fetchApis.getUser().then(setUser);
-  }, []);
+  }, [user]);
 
   return (
-    <BrowserRouter basename="/library">
+    <BrowserRouter>
       <div>
         {user ? (
-          <HeaderWithAvatar avatar={user.avatarUrl} />
+          <HeaderWithAvatar avatar={user.avatarUrl} setUser={setUser} />
         ) : (
           <Header className="borderBottom" />
         )}
         <Switch>
           <Route exact path="/">
-            {!user ? <HomePage /> : <Redirect to="/private/category/All" />}
+            {user ? <Redirect to="/library/category/All" /> : <HomePage />}
           </Route>
-          <Route path="/private/category">
-            <Library data={data} types={types} />
+          <Route exact path="/logIn">
+            {user ? <Redirect to="/library/category/All" /> : <LogIn />}
           </Route>
-          <Route path="/logIn">
-            <LogIn />
+          <Route path="/library/category">
+            {user ? <Library data={data} types={types} /> : <HomePage />}
           </Route>
-          <Route exact path="/private/detail/:title">
-            <BookDetail bookList={data.default} />
+          <Route exact path="/library/detail/:title">
+            {user ? <BookDetail bookList={data.default} /> : <HomePage />}
           </Route>
         </Switch>
       </div>

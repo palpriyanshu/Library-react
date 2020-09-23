@@ -7,12 +7,12 @@ import NavBar from './NavBar';
 const Library = ({ data, types }) => {
   return (
     <div>
-      <NavBar types={types} baseUrl="/private/category" />
+      <NavBar types={types} baseUrl="/library/category" />
       <Switch>
-        <Route exact path="/private/category/All">
+        <Route exact path="/library/category/All">
           <SearchableGallery bookList={data.default} />
         </Route>
-        <Route exact path="/private/category/:type">
+        <Route exact path="/library/category/:type">
           <FilteredGallery bookList={data.default} />
         </Route>
       </Switch>

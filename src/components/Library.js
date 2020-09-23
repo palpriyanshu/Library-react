@@ -10,10 +10,10 @@ const Library = ({ data, types }) => {
       <NavBar types={types} baseUrl="/library/category" />
       <Switch>
         <Route exact path="/library/category/All">
-          <SearchableGallery bookList={data.default} />
+          <SearchableGallery bookList={data} />
         </Route>
         <Route exact path="/library/category/:type">
-          <FilteredGallery bookList={data.default} />
+          <FilteredGallery bookList={data} />
         </Route>
       </Switch>
     </div>

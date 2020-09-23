@@ -33,7 +33,7 @@ const BookDetail = ({ bookList }) => {
     <div>
       <div className="bookDetail">
         <div>
-          <img src={imageUrl.thumbnail} alt="bookImage" className="bookImage" />
+          <img src={imageUrl} alt="bookImage" className="bookImage" />
           <Available isAvailable={bookInfo.isAvailable} />
         </div>
         <div>

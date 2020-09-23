@@ -7,7 +7,7 @@ const Book = (props) => {
   return (
     <div>
       <div className="book" value={name}>
-        <img src={img.thumbnail} alt={name} />
+        <img src={img} alt={name} />
         <Link to={`/library/detail/${name}`}>{name.toUpperCase()}</Link>
         <Available isAvailable={isAvailable} />
       </div>

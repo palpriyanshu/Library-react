@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
-import * as data from './booksDetails.json';
 import BookDetail from './components/BookDetail.js';
 import Header from './components/Header';
 import withProfile from './components/withProfile';
@@ -16,10 +15,19 @@ const HeaderWithAvatar = ({ avatar, setUser }) =>
 const App = (props) => {
   const types = ['All', 'Fiction', 'History', 'Fantassy', 'Art', 'Religion'];
   const [user, setUser] = useState(null);
+  const [bookData, setBookData] = useState(null);
 
   useEffect(() => {
     fetchApis.getUser().then(setUser);
   }, [user]);
+
+  useEffect(() => {
+    fetchApis.getBooks().then(setBookData);
+  }, [bookData]);
+
+  if (!bookData) {
+    return <p>Loading</p>;
+  }
 
   return (
     <BrowserRouter>
@@ -37,10 +45,10 @@ const App = (props) => {
             {user ? <Redirect to="/library/category/All" /> : <LogIn />}
           </Route>
           <Route path="/library/category">
-            {user ? <Library data={data} types={types} /> : <HomePage />}
+            {user ? <Library data={bookData} types={types} /> : <HomePage />}
           </Route>
           <Route exact path="/library/detail/:title">
-            {user ? <BookDetail bookList={data.default} /> : <HomePage />}
+            {user ? <BookDetail bookList={bookData} /> : <HomePage />}
           </Route>
         </Switch>
       </div>

@@ -89,10 +89,23 @@ a {
   visibility: visible;
 }
 
+.button {
+  margin: 10px;
+  width: 100px;
+}
+
 .available {
   background-color: rgb(71, 187, 121);
 }
 
 .notAvailable {
   background-color: rgb(241, 107, 107);
+}
+
+.borrowBtn {
+  background-color: rgb(71, 179, 187);
+}
+
+.backBtn {
+  background-color: rgb(187, 74, 127);
 }

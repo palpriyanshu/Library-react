@@ -1,8 +1,5 @@
 import React from 'react';
-
-const Button = ({ className, text }) => (
-  <button className={className}>{text}</button>
-);
+import Button from './Button';
 
 const Available = ({ isAvailable }) => {
   return isAvailable ? (

@@ -1,6 +1,10 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import Button from './Button';
 import Available from './Available';
+import Back from './Back';
+
+const Borrow = (props) => <Button className="borrowBtn" text="Borrow" />;
 
 const BookDetail = ({ bookList }) => {
   const { title } = useParams();
@@ -35,6 +39,8 @@ const BookDetail = ({ bookList }) => {
         <div>
           <img src={imageUrl} alt="bookImage" className="bookImage" />
           <Available isAvailable={bookInfo.isAvailable} />
+          <Borrow />
+          <Back url="/library/category/All" />
         </div>
         <div>
           <h3>{title}</h3> {bookInfo}

@@ -8,6 +8,7 @@ import LogIn from './components/LogIn';
 import Library from './components/Library';
 import HomePage from './components/HomePage';
 import { fetchApis } from './fetchApis';
+import YourBook from './components/YourBooks';
 
 const HeaderWithAvatar = ({ avatar, setUser }) =>
   withProfile(Header, avatar, setUser);
@@ -19,11 +20,11 @@ const App = (props) => {
 
   useEffect(() => {
     fetchApis.getUser().then(setUser);
-  }, [user]);
+  }, []);
 
   useEffect(() => {
     fetchApis.getBooks().then(setBookData);
-  }, [bookData]);
+  }, []);
 
   if (!bookData) {
     return <p>Loading</p>;
@@ -48,7 +49,15 @@ const App = (props) => {
             {user ? <Library data={bookData} types={types} /> : <HomePage />}
           </Route>
           <Route exact path="/library/detail/:title">
-            {user ? <BookDetail bookList={bookData} /> : <HomePage />}
+            {user ? (
+              <BookDetail bookList={bookData} setBookData={setBookData} />
+            ) : (
+              <HomePage />
+            )}
+          </Route>
+
+          <Route path="/library/yourBooks">
+            <YourBook />
           </Route>
         </Switch>
       </div>

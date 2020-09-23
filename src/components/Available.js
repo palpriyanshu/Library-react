@@ -2,6 +2,7 @@ import React from 'react';
 import Button from './Button';
 
 const Available = ({ isAvailable }) => {
+  console.log(isAvailable);
   return isAvailable ? (
     <Button className="available" text="Available" />
   ) : (

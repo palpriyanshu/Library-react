@@ -3,10 +3,22 @@ import { useParams } from 'react-router-dom';
 import Button from './Button';
 import Available from './Available';
 import Back from './Back';
+import { fetchApis } from '../fetchApis';
 
-const Borrow = (props) => <Button className="borrowBtn" text="Borrow" />;
+const Borrow = (props) => {
+  const handleClick = () => {
+    fetchApis.registerBookToUser(props.bookId).then(({ status }) => {
+      status && fetchApis.getBooks().then(props.setBookData);
+    });
+  };
+  return (
+    <div onClick={handleClick}>
+      <Button className="borrowBtn" text="Borrow" />
+    </div>
+  );
+};
 
-const BookDetail = ({ bookList }) => {
+const BookDetail = ({ bookList, setBookData }) => {
   const { title } = useParams();
   const detail = bookList.find((details) => details.title === title);
   const {
@@ -27,8 +39,8 @@ const BookDetail = ({ bookList }) => {
     publishedDate,
     publisher,
     author,
-  ].map((d) => (
-    <div key={d}>
+  ].map((d, i) => (
+    <div key={i}>
       <span style={{ color: 'green' }}>{d}:</span>
       <p>{detail[d]}</p>
     </div>
@@ -36,10 +48,10 @@ const BookDetail = ({ bookList }) => {
   return (
     <div>
       <div className="bookDetail">
-        <div>
+        <div key={id}>
           <img src={imageUrl} alt="bookImage" className="bookImage" />
-          <Available isAvailable={bookInfo.isAvailable} />
-          <Borrow />
+          <Available isAvailable={detail.isAvailable} />
+          <Borrow bookId={id} setBookData={setBookData} />
           <Back url="/library/category/All" />
         </div>
         <div>

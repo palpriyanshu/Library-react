@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { fetchApis } from '../fetchApis.js';
 import '../App.css';
 
 const DropDown = (props) => {
-  const handleClick = (props) => {
+  const handleLogOut = () => {
     fetchApis.logOut().then((reply) => {
-      if (reply) {
+      if (reply.status) {
         fetchApis.getUser().then(props.setUser);
       }
     });
@@ -13,8 +14,8 @@ const DropDown = (props) => {
 
   return (
     <div className={props.className}>
-      <div>your books</div>
-      <div onClick={handleClick} style={{ cursor: 'pointer' }}>
+      <Link to="/library/yourBooks">your books</Link>
+      <div onClick={handleLogOut} style={{ cursor: 'pointer' }}>
         logOut
       </div>
     </div>

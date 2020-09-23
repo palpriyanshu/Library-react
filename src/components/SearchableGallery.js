@@ -14,9 +14,9 @@ class SearchableGallery extends React.Component {
   }
 
   filteredGallery(bookList) {
-    return bookList.filter(({ title }) =>
-      title.toLowerCase().includes(this.state.searchTerm.toLowerCase())
-    );
+    return bookList.filter(({ title }) => {
+      return title.toLowerCase().includes(this.state.searchTerm.toLowerCase());
+    });
   }
 
   render() {

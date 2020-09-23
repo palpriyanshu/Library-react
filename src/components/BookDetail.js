@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import Available from './Available';
 
 const BookDetail = ({ bookList }) => {
   const { title } = useParams();
@@ -31,7 +32,10 @@ const BookDetail = ({ bookList }) => {
   return (
     <div>
       <div className="bookDetail">
-        <img src={imageUrl.thumbnail} alt="bookImage" className="bookImage" />
+        <div>
+          <img src={imageUrl.thumbnail} alt="bookImage" className="bookImage" />
+          <Available isAvailable={bookInfo.isAvailable} />
+        </div>
         <div>
           <h3>{title}</h3> {bookInfo}
         </div>

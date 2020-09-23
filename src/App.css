@@ -88,3 +88,11 @@ a {
 .show {
   visibility: visible;
 }
+
+.available {
+  background-color: rgb(71, 187, 121);
+}
+
+.notAvailable {
+  background-color: rgb(241, 107, 107);
+}

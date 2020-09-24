@@ -1,37 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import BookGallery from './BookGallery.js';
 
-class SearchableGallery extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { searchTerm: '' };
-    this.handleChange = this.handleChange.bind(this);
-  }
+const SearchableGallery = (props) => {
+  const [searchTerm, setSearchTerm] = useState('');
 
-  handleChange(event) {
+  const handleChange = (event) => {
     const searchTerm = event.target.value;
-    this.setState(() => ({ searchTerm }));
-  }
+    setSearchTerm(searchTerm);
+  };
 
-  filteredGallery(bookList) {
+  const filteredGallery = (bookList) => {
     return bookList.filter(({ title }) => {
-      return title.toLowerCase().includes(this.state.searchTerm.toLowerCase());
+      return title.toLowerCase().includes(searchTerm.toLowerCase());
     });
-  }
+  };
 
-  render() {
-    const filteredList = this.filteredGallery(this.props.bookList);
-    return (
-      <div>
-        <input
-          onChange={this.handleChange}
-          value={this.state.searchTerm}
-          style={{ margin: '20px' }}
-        />
-        <BookGallery className={this.props.className} bookList={filteredList} />
-      </div>
-    );
-  }
-}
+  const filteredList = filteredGallery(props.bookList);
+
+  return (
+    <div>
+      <input onChange={handleChange} value={searchTerm} className="inputBox" />
+      <BookGallery className={props.className} bookList={filteredList} />
+    </div>
+  );
+};
 
 export default SearchableGallery;

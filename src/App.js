@@ -4,7 +4,6 @@ import './App.css';
 import BookDetail from './components/BookDetail.js';
 import Header from './components/Header';
 import withProfile from './components/withProfile';
-import LogIn from './components/LogIn';
 import Library from './components/Library';
 import HomePage from './components/HomePage';
 import { fetchApis } from './fetchApis';
@@ -31,9 +30,6 @@ const App = (props) => {
         <Switch>
           <Route exact path="/">
             {user ? <Redirect to="/library/category/All" /> : <HomePage />}
-          </Route>
-          <Route exact path="/logIn">
-            {user ? <Redirect to="/library/category/All" /> : <LogIn />}
           </Route>
           <Route path="/library/category">
             {user ? <Library /> : <HomePage />}

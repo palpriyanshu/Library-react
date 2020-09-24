@@ -14,21 +14,11 @@ const HeaderWithAvatar = ({ avatar, setUser }) =>
   withProfile(Header, avatar, setUser);
 
 const App = (props) => {
-  const types = ['All', 'Fiction', 'History', 'Fantassy', 'Art', 'Religion'];
   const [user, setUser] = useState(null);
-  const [bookData, setBookData] = useState(null);
 
   useEffect(() => {
     fetchApis.getUser().then(setUser);
   }, []);
-
-  useEffect(() => {
-    fetchApis.getBooks().then(setBookData);
-  }, []);
-
-  if (!bookData) {
-    return <p>Loading</p>;
-  }
 
   return (
     <BrowserRouter>
@@ -46,12 +36,11 @@ const App = (props) => {
             {user ? <Redirect to="/library/category/All" /> : <LogIn />}
           </Route>
           <Route path="/library/category">
-            {user ? <Library data={bookData} types={types} /> : <HomePage />}
+            {user ? <Library /> : <HomePage />}
           </Route>
           <Route exact path="/library/detail/:id/:title">
             {user ? <BookDetail /> : <HomePage />}
           </Route>
-
           <Route path="/library/yourBooks">
             <YourBook />
           </Route>

@@ -27,6 +27,8 @@ const fetchApis = {
     ),
   myBooks: () => fetch('/myBooks').then((books) => books.json()),
   getBook: (id) => fetch(`/getBook/${id}`).then((details) => details.json()),
+  returnBook: (id) =>
+    fetch(`/returnBook`, bookPostOption({ id })).then((reply) => reply.json()),
 };
 
 module.exports = { fetchApis };

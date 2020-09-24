@@ -2,6 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { fetchApis } from '../fetchApis';
 import Button from './Button';
 
+const ReturnBook = (props) => {
+  const handleClick = () => {
+    fetchApis.returnBook(props.bookId).then((reply) => {
+      if (reply.status) {
+        fetchApis.myBooks().then((books) => {
+          props.setMyBooks(books);
+        });
+      }
+    });
+  };
+  return (
+    <div onClick={handleClick}>
+      <Button className="available" text="Return" />
+    </div>
+  );
+};
+
 const YourBook = (props) => {
   const [myBooks, setMyBooks] = useState(null);
   useEffect(() => {
@@ -11,6 +28,7 @@ const YourBook = (props) => {
   if (!myBooks) {
     return <p>Loading</p>;
   }
+  console.log(myBooks);
   const booksDiv = myBooks.map((book) => (
     <div
       style={{
@@ -23,7 +41,7 @@ const YourBook = (props) => {
       <img src={book.imageUrl} alt="book" />
       <div style={{ margin: '10px' }}>
         <h1>{book.title}</h1>
-        <Button className="available" text="Return" />
+        <ReturnBook bookId={book.id} setMyBooks={setMyBooks} />
       </div>
     </div>
   ));

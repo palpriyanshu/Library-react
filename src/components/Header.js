@@ -3,7 +3,7 @@ import logo from '../icons/logo.jpeg';
 
 const Header = (props) => {
   return (
-    <div style={{ display: 'flex' }} className={props.className}>
+    <div className={`${props.className} header`}>
       <img src={logo} alt="logo" className="logo" />
       <div className="appName">Library</div>
     </div>

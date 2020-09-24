@@ -14,9 +14,13 @@ const DropDown = (props) => {
 
   return (
     <div className={props.className}>
-      <Link to="/library/yourBooks">your books</Link>
+      <div>
+        <Link to="/library/yourBooks" className="textColor">
+          Your books
+        </Link>
+      </div>
       <div onClick={handleLogOut} style={{ cursor: 'pointer' }}>
-        logOut
+        Log out
       </div>
     </div>
   );

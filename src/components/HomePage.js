@@ -1,19 +1,28 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import LogIn from './LogIn';
+
+const HomePageDescriptor = ({ setVisibility }) => {
+  return (
+    <div className="homePage">
+      <h2>
+        spend less time searching so you can spend more time actually reading!
+      </h2>
+      <h3>"Today a reader, tomorrow a leader.” – Margaret Fuller</h3>
+      <div style={{ marginLeft: '300px' }}>
+        <button onClick={() => setVisibility(true)} className="loginBtn">
+          Log In
+        </button>
+      </div>
+    </div>
+  );
+};
 
 const HomePage = (props) => {
   const [isVisible, setVisibility] = useState(false);
-  const className = isVisible ? 'show' : 'hide';
-  return (
-    <div>
-      <p>
-        spend less time searching so you can spend more time actually reading!
-      </p>
-      <p>"Today a reader, tomorrow a leader.” – Margaret Fuller</p>
-      <button onClick={() => setVisibility(true)}>Log In</button>
-      <LogIn className={className} />
-    </div>
+  return isVisible ? (
+    <LogIn />
+  ) : (
+    <HomePageDescriptor setVisibility={setVisibility} />
   );
 };
 

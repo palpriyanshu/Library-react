@@ -3,20 +3,11 @@ import githubSignInLogo from '../icons/githubSignIn.png';
 
 const LogIn = (props) => {
   return (
-    <div
-      style={{
-        width: '40vw',
-        height: '20vh',
-        border: '1px solid black',
-        align: 'center',
-      }}
-      className={props.className}
-    >
-      <div className="logIn">
-        <a href="http://localhost:3002/api/authenticate">
-          <img src={githubSignInLogo} className="githubSignIn" />
-        </a>
-      </div>
+    <div className="logInBox">
+      <h2 style={{ marginLeft: '30vh' }}>WELCOME</h2>
+      <a href="http://localhost:3002/api/authenticate" className="githubSignIn">
+        <img src={githubSignInLogo} />
+      </a>
     </div>
   );
 };

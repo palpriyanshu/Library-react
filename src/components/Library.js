@@ -7,7 +7,6 @@ import { fetchApis } from '../fetchApis';
 
 const Library = (props) => {
   const types = ['All', 'Fiction', 'History', 'Fantassy', 'Art', 'Religion'];
-
   const [bookData, setBookData] = useState(null);
 
   useEffect(() => {

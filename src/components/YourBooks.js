@@ -12,11 +12,7 @@ const ReturnBook = (props) => {
       }
     });
   };
-  return (
-    <div onClick={handleClick}>
-      <Button className="available" text="Return" />
-    </div>
-  );
+  return <Button className="available" text="Return" onClick={handleClick} />;
 };
 
 const YourBook = (props) => {

@@ -92,6 +92,7 @@ a {
 .button {
   margin: 10px;
   width: 100px;
+  border-radius: 4px;
 }
 
 .available {
@@ -104,8 +105,10 @@ a {
 
 .borrowBtn {
   background-color: rgb(71, 179, 187);
+  cursor: pointer;
 }
 
 .backBtn {
   background-color: rgb(187, 74, 127);
+  cursor: pointer;
 }

@@ -11,11 +11,7 @@ const Borrow = ({ bookId, setBookDetail }) => {
       status && fetchApis.getBook(bookId).then(setBookDetail);
     });
   };
-  return (
-    <div onClick={handleClick}>
-      <Button className="borrowBtn" text="Borrow" />
-    </div>
-  );
+  return <Button className="borrowBtn" text="Borrow" onClick={handleClick} />;
 };
 
 const BookDetail = (props) => {

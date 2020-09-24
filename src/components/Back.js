@@ -4,11 +4,8 @@ import Button from './Button';
 
 const Back = () => {
   const history = useHistory();
-  return (
-    <div onClick={() => history.goBack()}>
-      <Button className="backBtn" text="Go Back" />
-    </div>
-  );
+  const handleClick = () => history.goBack();
+  return <Button className="backBtn" text="Go Back" onClick={handleClick} />;
 };
 
 export default Back;

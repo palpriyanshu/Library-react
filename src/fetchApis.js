@@ -7,7 +7,7 @@ const optionForPost = function () {
   };
 };
 
-const bookPostOption = function (content) {
+const bookPostOption = function (content = null) {
   return {
     headers: {
       'content-type': 'application/json',
@@ -26,6 +26,7 @@ const fetchApis = {
       reply.json()
     ),
   myBooks: () => fetch('/myBooks').then((books) => books.json()),
+  getBook: (id) => fetch(`/getBook/${id}`).then((details) => details.json()),
 };
 
 module.exports = { fetchApis };

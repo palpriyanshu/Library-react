@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Button from './Button';
 import Available from './Available';
 import Back from './Back';
 import { fetchApis } from '../fetchApis';
 
-const Borrow = (props) => {
+const Borrow = ({ bookId, setBookDetail }) => {
   const handleClick = () => {
-    fetchApis.registerBookToUser(props.bookId).then(({ status }) => {
-      status && fetchApis.getBooks().then(props.setBookData);
+    fetchApis.registerBookToUser(bookId).then(({ status }) => {
+      status && fetchApis.getBook(bookId).then(setBookDetail);
     });
   };
   return (
@@ -18,11 +18,19 @@ const Borrow = (props) => {
   );
 };
 
-const BookDetail = ({ bookList, setBookData }) => {
-  const { title } = useParams();
-  const detail = bookList.find((details) => details.title === title);
+const BookDetail = (props) => {
+  const { id, title } = useParams();
+  const [bookDetail, setBookDetail] = useState(null);
+
+  useEffect(() => {
+    fetchApis.getBook(id).then(setBookDetail);
+  }, []);
+
+  if (!bookDetail) {
+    return <p>Loading</p>;
+  }
+
   const {
-    id,
     imageUrl,
     Genre,
     pageCount,
@@ -30,7 +38,8 @@ const BookDetail = ({ bookList, setBookData }) => {
     publishedDate,
     publisher,
     author,
-  } = detail;
+  } = bookDetail;
+
   const bookInfo = [
     id,
     Genre,
@@ -42,16 +51,17 @@ const BookDetail = ({ bookList, setBookData }) => {
   ].map((d, i) => (
     <div key={i}>
       <span style={{ color: 'green' }}>{d}:</span>
-      <p>{detail[d]}</p>
+      <p>{bookDetail[d]}</p>
     </div>
   ));
+
   return (
     <div>
       <div className="bookDetail">
         <div key={id}>
           <img src={imageUrl} alt="bookImage" className="bookImage" />
-          <Available isAvailable={detail.isAvailable} />
-          <Borrow bookId={id} setBookData={setBookData} />
+          <Available isAvailable={JSON.parse(bookDetail.isAvailable)} />
+          <Borrow bookId={id} setBookDetail={setBookDetail} />
           <Back url="/library/category/All" />
         </div>
         <div>

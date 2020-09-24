@@ -48,12 +48,8 @@ const App = (props) => {
           <Route path="/library/category">
             {user ? <Library data={bookData} types={types} /> : <HomePage />}
           </Route>
-          <Route exact path="/library/detail/:title">
-            {user ? (
-              <BookDetail bookList={bookData} setBookData={setBookData} />
-            ) : (
-              <HomePage />
-            )}
+          <Route exact path="/library/detail/:id/:title">
+            {user ? <BookDetail /> : <HomePage />}
           </Route>
 
           <Route path="/library/yourBooks">

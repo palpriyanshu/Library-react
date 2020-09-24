@@ -23,7 +23,7 @@ const YourBook = (props) => {
       <img src={book.imageUrl} alt="book" />
       <div style={{ margin: '10px' }}>
         <h1>{book.title}</h1>
-        <Button className="available" text="Submit" />
+        <Button className="available" text="Return" />
       </div>
     </div>
   ));

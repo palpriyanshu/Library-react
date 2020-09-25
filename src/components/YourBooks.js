@@ -12,7 +12,7 @@ const ReturnBook = (props) => {
       }
     });
   };
-  return <Button className="available" text="Return" onClick={handleClick} />;
+  return <Button className="button" text="Return" onClick={handleClick} />;
 };
 
 const YourBook = (props) => {
@@ -24,25 +24,25 @@ const YourBook = (props) => {
   if (!myBooks) {
     return <p>Loading</p>;
   }
-  console.log(myBooks);
+
+  if (!myBooks.length) {
+    return (
+      <h3 style={{ marginTop: '20vh', marginLeft: '70vh' }}>
+        You don't have any book
+      </h3>
+    );
+  }
   const booksDiv = myBooks.map((book) => (
-    <div
-      style={{
-        display: 'flex',
-        margin: '20px',
-        borderBottom: '1px solid #ccc',
-      }}
-      key={book.id}
-    >
+    <div className="yourBook" key={book.id}>
       <img src={book.imageUrl} alt="book" />
       <div style={{ margin: '10px' }}>
-        <h1>{book.title}</h1>
+        <h2>{book.title}</h2>
         <ReturnBook bookId={book.id} setMyBooks={setMyBooks} />
       </div>
     </div>
   ));
 
-  return <div style={{ margin: '20px' }}>{booksDiv}</div>;
+  return <div className="yourBookDiv">{booksDiv}</div>;
 };
 
 export default YourBook;

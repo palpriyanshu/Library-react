@@ -26,36 +26,28 @@ const BookDetail = (props) => {
     return <p>Loading</p>;
   }
 
-  const {
-    imageUrl,
-    Genre,
-    pageCount,
-    description,
-    publishedDate,
-    publisher,
-    author,
-  } = bookDetail;
+  const fieldOfDetails = [
+    'id',
+    'author',
+    'Genre',
+    'pageCount',
+    'description',
+    'publisher',
+    'publishedDate',
+  ];
 
-  const bookInfo = [
-    id,
-    Genre,
-    pageCount,
-    description,
-    publishedDate,
-    publisher,
-    author,
-  ].map((d, i) => (
-    <div key={i}>
-      <span style={{ color: 'green' }}>{d}:</span>
-      <p>{bookDetail[d]}</p>
+  const bookInfo = fieldOfDetails.map((field) => (
+    <div key={field}>
+      <h4 style={{ color: '#888' }}>{field}</h4>
+      <p>{bookDetail[field]}</p>
     </div>
   ));
 
   return (
     <div>
       <div className="bookDetail">
-        <div key={id}>
-          <img src={imageUrl} alt="bookImage" className="bookImage" />
+        <div key={id} className="bookDivLeft">
+          <img src={bookDetail.imageUrl} alt="bookImage" />
           <Available isAvailable={JSON.parse(bookDetail.isAvailable)} />
           <Borrow bookId={id} setBookDetail={setBookDetail} />
           <Back url="/library/category/All" />

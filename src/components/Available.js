@@ -2,9 +2,9 @@ import React from 'react';
 
 const Available = ({ isAvailable }) => {
   return isAvailable ? (
-    <div className="available button">Available</div>
+    <div className="available">Available</div>
   ) : (
-    <div className="notAvailable button">Not Available</div>
+    <div className="notAvailable">Not Available</div>
   );
 };
 

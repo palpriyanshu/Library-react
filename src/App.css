@@ -119,6 +119,18 @@ a {
   border: 1px solid #ccc;
 }
 
+.bookName {
+  color: #444;
+  text-align: center;
+  margin: 10px;
+}
+
+.bookName:hover {
+  color: #222;
+  text-align: center;
+  margin: 10px;
+}
+
 .bookDetail {
   margin: 20px;
   display: flex;
@@ -156,19 +168,28 @@ a {
 }
 
 .available {
-  border: 1px solid rgb(71, 187, 121);
+  margin: 10px;
   color: rgb(71, 187, 121);
-  border-radius: 4px;
 }
 
 .notAvailable {
+  margin: 10px;
   color: rgb(241, 107, 107);
-  border: 1px solid rgb(241, 107, 107);
-  border-radius: 4px;
 }
 
 .textColor {
   color: black;
+}
+
+.bookDivLeft {
+  width: 150px;
+  margin: 10px;
+}
+
+.bookDivLeft > img {
+  border: 1px solid #ccc;
+  width: 90%;
+  height: 150px;
 }
 
 .borrowBtn {
@@ -207,4 +228,26 @@ a {
   width: 30px;
   height: 30px;
   margin: 0 5px;
+}
+
+.yourBook {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  margin: 10px;
+}
+
+.yourBook:hover {
+  border-bottom: 1px solid #888;
+}
+
+.yourBook > img {
+  height: 140px;
+  width: 100px;
+  margin: 10px;
+}
+
+.yourBookDiv {
+  width: 50%;
+  margin-top: 10vh;
+  margin-left: 40vh;
 }

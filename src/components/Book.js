@@ -9,10 +9,13 @@ const Book = (props) => {
       <div>
         <img src={img} alt={name} className="bookCover" />
       </div>
-      <Link to={`/library/detail/${id}/${name}`} className="textColor">
-        {name.toUpperCase()}
+      <Link to={`/library/detail/${id}/${name}`} className="bookName">
+        {name}
       </Link>
-      <Available isAvailable={JSON.parse(isAvailable)} />
+      <Available
+        isAvailable={JSON.parse(isAvailable)}
+        style={{ margin: '20px' }}
+      />
     </div>
   );
 };

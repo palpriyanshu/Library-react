@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import BookGallery from './BookGallery.js';
+import searchIcon from '../icons/searchBar.png';
 
 const SearchableGallery = (props) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -19,7 +20,10 @@ const SearchableGallery = (props) => {
 
   return (
     <div>
-      <input onChange={handleChange} value={searchTerm} className="inputBox" />
+      <div className={props.className}>
+        <input onChange={handleChange} value={searchTerm} />
+        <img src={searchIcon} alt="searchBar" className="searchIcon" />
+      </div>
       <BookGallery className={props.className} bookList={filteredList} />
     </div>
   );

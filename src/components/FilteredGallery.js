@@ -7,7 +7,7 @@ const FilteredGallery = (props) => {
   const filteredBooks = props.bookList.filter(({ Genre }) =>
     Genre.includes(type)
   );
-  return <SearchableGallery bookList={filteredBooks} />;
+  return <SearchableGallery bookList={filteredBooks} className="searchBar" />;
 };
 
 export default FilteredGallery;

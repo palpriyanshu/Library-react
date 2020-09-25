@@ -3,7 +3,12 @@ import { NavLink } from 'react-router-dom';
 
 const NavBar = ({ types, baseUrl }) => {
   const navBar = types.map((type) => (
-    <NavLink to={`${baseUrl}/${type}`} activeClassName="activeLink" key={type}>
+    <NavLink
+      to={`${baseUrl}/${type}`}
+      activeClassName="activeLink"
+      key={type}
+      className="navDiv"
+    >
       {type}
     </NavLink>
   ));

@@ -16,13 +16,12 @@ const Library = (props) => {
   if (!bookData) {
     return <p>Loading</p>;
   }
-
   return (
     <div>
       <NavBar types={types} baseUrl="/library/category" />
       <Switch>
         <Route exact path="/library/category/All">
-          <SearchableGallery bookList={bookData} />
+          <SearchableGallery bookList={bookData} className="searchBar" />
         </Route>
         <Route exact path="/library/category/:type">
           <FilteredGallery bookList={bookData} />

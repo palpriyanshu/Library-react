@@ -66,12 +66,6 @@ a {
   box-shadow: 0 0 5px #ccc;
 }
 
-.activeLink {
-  text-decoration: none;
-  border-bottom: 2px solid blue;
-  scroll-behavior: auto;
-}
-
 .borderBottom {
   border-bottom: 1px solid #888;
 }
@@ -102,14 +96,27 @@ a {
 }
 
 .navBar {
-  border-bottom: 1px solid #888;
+  border: 1px 0px solid #888;
   margin: 20px;
+  background-color: #eee;
+  height: 3.6vh;
 }
 
-.bookImage {
-  margin-right: 20px;
+.navDiv {
+  color: #444;
+  font-size: 20px;
+}
+
+.activeLink {
+  text-decoration: none;
+  border-bottom: 2px solid #222;
+  color: #222;
+}
+
+.bookCover {
   width: 150px;
   height: 200px;
+  border: 1px solid #ccc;
 }
 
 .bookDetail {
@@ -120,8 +127,13 @@ a {
 .book {
   padding: 10px;
   text-align: center;
-  width: 100px;
+  width: 30vh;
   margin: 15px;
+  box-shadow: 0 0 5px #ccc;
+}
+
+.book:hover {
+  box-shadow: 0 0 5px #aaa;
 }
 
 .bookGallery {
@@ -144,11 +156,15 @@ a {
 }
 
 .available {
-  background-color: rgb(71, 187, 121);
+  border: 1px solid rgb(71, 187, 121);
+  color: rgb(71, 187, 121);
+  border-radius: 4px;
 }
 
 .notAvailable {
-  background-color: rgb(241, 107, 107);
+  color: rgb(241, 107, 107);
+  border: 1px solid rgb(241, 107, 107);
+  border-radius: 4px;
 }
 
 .textColor {
@@ -165,6 +181,30 @@ a {
   cursor: pointer;
 }
 
-.inputBox {
+.searchBar {
   margin: 20px;
+  left: 70vw;
+  top: 1vh;
+  position: absolute;
+  display: flex;
+}
+
+.searchBar > input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 5px;
+  font-size: 18px;
+  color: #555;
+}
+
+.searchBar > input {
+  border-bottom: 1px solid #888;
+}
+
+.searchBar > img {
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
 }

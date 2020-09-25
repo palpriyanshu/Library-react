@@ -96,7 +96,6 @@ a {
 }
 
 .navBar {
-  border: 1px 0px solid #888;
   margin: 20px;
   background-color: #eee;
   height: 3.6vh;
@@ -105,6 +104,10 @@ a {
 .navDiv {
   color: #444;
   font-size: 20px;
+}
+
+.navDiv:hover {
+  color: #111;
 }
 
 .activeLink {

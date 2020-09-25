@@ -15,12 +15,12 @@ const Borrow = ({ bookId, setBookDetail }) => {
 };
 
 const BookDetail = (props) => {
-  const { id, title } = useParams();
+  const { id } = useParams();
   const [bookDetail, setBookDetail] = useState(null);
 
   useEffect(() => {
     fetchApis.getBook(id).then(setBookDetail);
-  }, []);
+  }, [id]);
 
   if (!bookDetail) {
     return <p>Loading</p>;
@@ -43,17 +43,25 @@ const BookDetail = (props) => {
     </div>
   ));
 
+  const isAvailable = JSON.parse(bookDetail.isAvailable);
+
+  const borrowOption = isAvailable ? (
+    <Borrow bookId={id} setBookDetail={setBookDetail} />
+  ) : (
+    <></>
+  );
+
   return (
     <div>
       <div className="bookDetail">
         <div key={id} className="bookDivLeft">
           <img src={bookDetail.imageUrl} alt="bookImage" />
-          <Available isAvailable={JSON.parse(bookDetail.isAvailable)} />
-          <Borrow bookId={id} setBookDetail={setBookDetail} />
+          <Available isAvailable={isAvailable} />
+          {borrowOption}
           <Back url="/library/category/All" />
         </div>
         <div>
-          <h3>{title}</h3> {bookInfo}
+          <h3>{bookDetail.title}</h3> {bookInfo}
         </div>
       </div>
     </div>

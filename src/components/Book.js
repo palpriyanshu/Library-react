@@ -9,7 +9,7 @@ const Book = (props) => {
       <div>
         <img src={img} alt={name} className="bookCover" />
       </div>
-      <Link to={`/library/detail/${id}/${name}`} className="bookName">
+      <Link to={`/library/detail/${id}`} className="bookName">
         {name}
       </Link>
       <Available

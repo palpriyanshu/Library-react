@@ -6,7 +6,7 @@ const LogIn = (props) => {
     <div className="logInBox">
       <h2 style={{ marginLeft: '30vh' }}>WELCOME</h2>
       <a href="http://localhost:3002/api/authenticate" className="githubSignIn">
-        <img src={githubSignInLogo} />
+        <img src={githubSignInLogo} alt="login" />
       </a>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import LogIn from './LogIn';
+import Header from './Header';
 
 const HomePageDescriptor = ({ setVisibility }) => {
   return (
@@ -19,10 +20,15 @@ const HomePageDescriptor = ({ setVisibility }) => {
 
 const HomePage = (props) => {
   const [isVisible, setVisibility] = useState(false);
-  return isVisible ? (
-    <LogIn />
-  ) : (
-    <HomePageDescriptor setVisibility={setVisibility} />
+  return (
+    <div>
+      <Header className="borderBottom" />
+      {isVisible ? (
+        <LogIn />
+      ) : (
+        <HomePageDescriptor setVisibility={setVisibility} />
+      )}
+    </div>
   );
 };
 

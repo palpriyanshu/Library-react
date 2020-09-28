@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import Button from './Button';
 import Available from './Available';
 import Back from './Back';
-import { fetchApis } from '../fetchApis';
+import { fetchApis } from '../api/fetchApis';
 
 const Borrow = ({ bookId, setBookDetail }) => {
   const handleClick = () => {

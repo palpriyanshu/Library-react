@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import FilteredGallery from './FilteredGallery';
 import SearchableGallery from './SearchableGallery';
 import NavBar from './NavBar';
-import { fetchApis } from '../fetchApis';
+import { fetchApis } from '../api/fetchApis';
 
 const Library = (props) => {
   const types = ['All', 'Fiction', 'History', 'Fantassy', 'Art', 'Religion'];

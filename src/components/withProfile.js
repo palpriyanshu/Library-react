@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchApis } from '../fetchApis.js';
+import { fetchApis } from '../api/fetchApis.js';
 import '../App.css';
 
 const DropDown = (props) => {

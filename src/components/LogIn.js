@@ -4,7 +4,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const LogIn = (props) => {
-  console.log(process.env);
   return (
     <div className="logInBox">
       <h2 style={{ marginLeft: '30vh' }}>WELCOME</h2>

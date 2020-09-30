@@ -7,47 +7,6 @@ a {
   margin-right: 20px;
 }
 
-.logo {
-  width: 100px;
-  height: 50px;
-}
-
-.appName {
-  text-align: center;
-  font-size: 40px;
-  padding-left: 20px;
-}
-
-.header {
-  display: flex;
-}
-
-.homePage {
-  width: 60%;
-  height: 60%;
-  margin-top: 20vh;
-  margin-left: 40vh;
-  line-height: 60px;
-}
-
-.loginBtn {
-  margin: 10px;
-  padding: 10px 5px;
-  width: 150px;
-  font-size: 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  border-color: #eee;
-}
-
-.loginBtn:hover {
-  background-color: #ccc;
-}
-
-.borderBottom {
-  border-bottom: 1px solid #888;
-}
-
 .dropDown {
   right: 30px;
   border: 1px solid #aaa;
@@ -72,33 +31,12 @@ a {
   color: #222;
 }
 
-.bookDetail {
-  margin: 20px;
-  display: flex;
-}
-
-.bookGallery {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .hide {
   visibility: hidden;
 }
 
 .show {
   visibility: visible;
-}
-
-.bookDivLeft {
-  width: 150px;
-  margin: 10px;
-}
-
-.bookDivLeft > img {
-  border: 1px solid #ccc;
-  width: 90%;
-  height: 150px;
 }
 
 .searchBar {
@@ -117,9 +55,6 @@ a {
   padding: 5px;
   font-size: 18px;
   color: #555;
-}
-
-.searchBar > input {
   border-bottom: 1px solid #888;
 }
 
@@ -127,26 +62,4 @@ a {
   width: 30px;
   height: 30px;
   margin: 0 5px;
-}
-
-.yourBook {
-  display: flex;
-  border-bottom: 1px solid #ccc;
-  margin: 10px;
-}
-
-.yourBook:hover {
-  border-bottom: 1px solid #888;
-}
-
-.yourBook > img {
-  height: 140px;
-  width: 100px;
-  margin: 10px;
-}
-
-.yourBookDiv {
-  width: 50%;
-  margin-top: 10vh;
-  margin-left: 40vh;
 }

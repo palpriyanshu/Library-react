@@ -1,6 +1,32 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 import { fetchApis } from '../api/fetchApis';
 import Button from './Button';
+
+const YourBookDiv = styled.div`
+  width: 50%;
+  margin-top: 10vh;
+  margin-left: 40vh;
+`;
+
+const StyledYourBook = styled.div`
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  margin: 10px;
+
+  &:hover {
+  border-bottom: 1px solid #888;
+  `;
+
+const YourBookImg = styled.img`
+  height: 140px;
+  width: 100px;
+  margin: 10px;
+`;
+
+const YourBookBox = styled.div`
+  margin: 10px;
+`;
 
 const ReturnBook = (props) => {
   const handleClick = () => {
@@ -33,16 +59,16 @@ const YourBook = (props) => {
     );
   }
   const booksDiv = myBooks.map((book) => (
-    <div className="yourBook" key={book.id}>
-      <img src={book.imageUrl} alt="book" />
-      <div style={{ margin: '10px' }}>
+    <StyledYourBook key={book.id}>
+      <YourBookImg src={book.imageUrl} alt="book"></YourBookImg>
+      <YourBookBox>
         <h2>{book.title}</h2>
         <ReturnBook bookId={book.id} setMyBooks={setMyBooks} />
-      </div>
-    </div>
+      </YourBookBox>
+    </StyledYourBook>
   ));
 
-  return <div className="yourBookDiv">{booksDiv}</div>;
+  return <YourBookDiv>{booksDiv}</YourBookDiv>;
 };
 
 export default YourBook;

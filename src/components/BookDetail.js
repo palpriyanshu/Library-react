@@ -1,9 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
 import Button from './Button';
 import Available from './Available';
 import Back from './Back';
 import { fetchApis } from '../api/fetchApis';
+
+const StyledBookDetail = styled.div`
+  margin: 20px;
+  display: flex;
+`;
+
+const BookDetailLeftSec = styled.div`
+  width: 150px;
+  margin: 10px;
+`;
+
+const BookImg = styled.img`
+  border: 1px solid #ccc;
+  width: 90%;
+  height: 150px;
+`;
 
 const Borrow = ({ bookId, setBookDetail }) => {
   const handleClick = () => {
@@ -59,17 +76,17 @@ const BookDetail = (props) => {
 
   return (
     <div>
-      <div className="bookDetail">
-        <div key={id} className="bookDivLeft">
-          <img src={bookDetail.imageUrl} alt="bookImage" />
+      <StyledBookDetail>
+        <BookDetailLeftSec key={id}>
+          <BookImg src={bookDetail.imageUrl} alt="bookImage"></BookImg>
           <Available isAvailable={isAvailable} />
           {borrowOption}
           <Back url="/library/category/All" />
-        </div>
+        </BookDetailLeftSec>
         <div>
           <h3>{bookDetail.title}</h3> {bookInfo}
         </div>
-      </div>
+      </StyledBookDetail>
     </div>
   );
 };

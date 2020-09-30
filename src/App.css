@@ -51,21 +51,6 @@ a {
   background-color: #ccc;
 }
 
-.githubSignIn {
-  margin-left: 18vh;
-}
-
-.logInBox {
-  width: 40vw;
-  height: 24vh;
-  align-items: center;
-  justify-content: center;
-  top: 200px;
-  left: 56vh;
-  position: absolute;
-  box-shadow: 0 0 5px #ccc;
-}
-
 .borderBottom {
   border-bottom: 1px solid #888;
 }
@@ -93,12 +78,6 @@ a {
 
 .dropDown > div:hover {
   background-color: #ccc;
-}
-
-.navBar {
-  margin: 20px;
-  background-color: #eee;
-  height: 3.6vh;
 }
 
 .navDiv {
@@ -162,16 +141,6 @@ a {
 
 .show {
   visibility: visible;
-}
-
-.available {
-  margin: 10px;
-  color: rgb(71, 187, 121);
-}
-
-.notAvailable {
-  margin: 10px;
-  color: rgb(241, 107, 107);
 }
 
 .textColor {

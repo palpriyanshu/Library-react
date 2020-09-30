@@ -5,6 +5,7 @@ import Button from './Button';
 const Back = () => {
   const history = useHistory();
   const handleClick = () => history.goBack();
+
   return (
     <Button
       text="Go Back"

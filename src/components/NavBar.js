@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 
 const NavBar = ({ types, baseUrl }) => {
   const navBar = types.map((type) => (
@@ -12,7 +13,14 @@ const NavBar = ({ types, baseUrl }) => {
       {type}
     </NavLink>
   ));
-  return <div className="navBar">{navBar}</div>;
+
+  const StyledNavBar = styled.div`
+    margin: 20px;
+    background-color: #eee;
+    height: 3.6vh;
+  `;
+
+  return <StyledNavBar>{navBar}</StyledNavBar>;
 };
 
 export default NavBar;

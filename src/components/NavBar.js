@@ -2,6 +2,12 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
+const StyledNavBar = styled.div`
+  margin: 20px;
+  background-color: #eee;
+  height: 3.6vh;
+`;
+
 const NavBar = ({ types, baseUrl }) => {
   const navBar = types.map((type) => (
     <NavLink
@@ -13,12 +19,6 @@ const NavBar = ({ types, baseUrl }) => {
       {type}
     </NavLink>
   ));
-
-  const StyledNavBar = styled.div`
-    margin: 20px;
-    background-color: #eee;
-    height: 3.6vh;
-  `;
 
   return <StyledNavBar>{navBar}</StyledNavBar>;
 };

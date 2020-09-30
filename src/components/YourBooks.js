@@ -12,7 +12,7 @@ const ReturnBook = (props) => {
       }
     });
   };
-  return <Button className="button" text="Return" onClick={handleClick} />;
+  return <Button text="Return" onClick={handleClick} backgroundColor="#eee" />;
 };
 
 const YourBook = (props) => {

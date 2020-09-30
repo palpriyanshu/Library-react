@@ -164,12 +164,6 @@ a {
   visibility: visible;
 }
 
-.button {
-  margin: 10px;
-  width: 100px;
-  border-radius: 4px;
-}
-
 .available {
   margin: 10px;
   color: rgb(71, 187, 121);
@@ -193,16 +187,6 @@ a {
   border: 1px solid #ccc;
   width: 90%;
   height: 150px;
-}
-
-.borrowBtn {
-  background-color: rgb(71, 179, 187);
-  cursor: pointer;
-}
-
-.backBtn {
-  background-color: rgb(187, 74, 127);
-  cursor: pointer;
 }
 
 .searchBar {

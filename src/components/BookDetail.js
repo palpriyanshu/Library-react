@@ -11,7 +11,13 @@ const Borrow = ({ bookId, setBookDetail }) => {
       status && fetchApis.getBook(bookId).then(setBookDetail);
     });
   };
-  return <Button className="borrowBtn" text="Borrow" onClick={handleClick} />;
+  return (
+    <Button
+      text="Borrow"
+      onClick={handleClick}
+      backgroundColor=" rgb(71, 179, 187)"
+    />
+  );
 };
 
 const BookDetail = (props) => {

@@ -8,16 +8,24 @@ const StyledNavBar = styled.div`
   height: 3.6vh;
 `;
 
+const StyledNavLink = styled(NavLink)`
+  color: #444;
+  font-size: 20px;
+
+  &:hover {
+    color: #111;
+  }
+`;
+
 const NavBar = ({ types, baseUrl }) => {
   const navBar = types.map((type) => (
-    <NavLink
+    <StyledNavLink
       to={`${baseUrl}/${type}`}
       activeClassName="activeLink"
       key={type}
-      className="navDiv"
     >
       {type}
-    </NavLink>
+    </StyledNavLink>
   ));
 
   return <StyledNavBar>{navBar}</StyledNavBar>;

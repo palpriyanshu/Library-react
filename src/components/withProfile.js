@@ -1,30 +1,21 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { fetchApis } from '../api/fetchApis.js';
+import styled from 'styled-components';
+import DropDown from './DropDown';
 import '../App.css';
 
-const DropDown = (props) => {
-  const handleLogOut = () => {
-    fetchApis.logOut().then((reply) => {
-      if (reply.status) {
-        fetchApis.getUser().then(props.setUser);
-      }
-    });
-  };
+const Avatar = styled.img`
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 40px;
+`;
 
-  return (
-    <div className={props.className}>
-      <div>
-        <Link to="/library/yourBooks" className="textColor">
-          Your books
-        </Link>
-      </div>
-      <div onClick={handleLogOut} style={{ cursor: 'pointer' }}>
-        Log out
-      </div>
-    </div>
-  );
-};
+const StyledHeaderWithProfile = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  box-shadow: 0 1.6px 0 #ccc;
+`;
 
 const AvatarDiv = ({ avatarUrl, setUser }) => {
   const [isVisible, setVisibility] = useState(false);
@@ -32,12 +23,11 @@ const AvatarDiv = ({ avatarUrl, setUser }) => {
 
   return (
     <div>
-      <img
+      <Avatar
         src={avatarUrl}
         alt="avatar"
-        className="avatar"
         onClick={() => setVisibility(!isVisible)}
-      />
+      ></Avatar>
       <DropDown className={`${dropDownStyle} dropDown`} setUser={setUser} />
     </div>
   );
@@ -45,10 +35,10 @@ const AvatarDiv = ({ avatarUrl, setUser }) => {
 
 const withProfile = (Component, avatar, setUser) => {
   return (
-    <div className="headerWithProfile">
+    <StyledHeaderWithProfile>
       <Component />
       <AvatarDiv avatarUrl={avatar} setUser={setUser} />
-    </div>
+    </StyledHeaderWithProfile>
   );
 };
 

@@ -22,7 +22,7 @@ const SearchableGallery = (props) => {
     <div>
       <div className={props.className}>
         <input onChange={handleChange} value={searchTerm} />
-        <img src={searchIcon} alt="searchBar" className="searchIcon" />
+        <img src={searchIcon} alt="searchBar" />
       </div>
       <BookGallery className={props.className} bookList={filteredList} />
     </div>

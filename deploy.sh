@@ -26,7 +26,7 @@ rm -rf ../public
 mkdir ../public
 
 echo 'moving build from frontend to backend'
-mv ./build/* ../public
+mv build/* ../public
 cd ..
 
 mv library-backend/* library-backend/.* .

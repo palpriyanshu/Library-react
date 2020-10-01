@@ -23,10 +23,10 @@ echo 'creating build'
 npm run build 2> /dev/null
 
 rm -rf ../public
-mkdir -p ../public
+mkdir ../public
 
 echo 'moving build from frontend to backend'
-mv ./build/* ../public/.
+mv ./build/* ../public
 cd ..
 
 mv library-backend/* Library-react/.* .

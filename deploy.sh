@@ -29,6 +29,6 @@ echo 'moving build from frontend to backend'
 mv ./build/* ../public
 cd ..
 
-mv library-backend/* Library-react/.* .
+mv library-backend/* library-backend/.* .
 
 rm -rf Library-react library-backend

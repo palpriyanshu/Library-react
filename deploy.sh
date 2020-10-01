@@ -2,9 +2,10 @@
 echo "clearing directory"
 rm -rf * .*
 
-echo "cloning backend";
+echo "cloning backend"
 git clone https://github.com/palpriyanshu/library-backend.git  2> /dev/null
 cd library-backend
+
 echo 'installing'
 npm install 2> /dev/null
 echo 'running backend tests'
@@ -14,6 +15,7 @@ cd ..
 echo 'cloning frontend'
 git clone https://github.com/palpriyanshu/Library-react.git frontend 2> /dev/null
 cd Library-react
+
 echo 'installing'
 npm install 2> /dev/null
 echo 'running frontend tests'
@@ -22,11 +24,10 @@ npm run test
 echo 'creating build'
 npm run build 2> /dev/null
 
-rm -rf ../public
-mkdir ../public
+mkdir -p ../public
 
 echo 'moving build from frontend to backend'
-mv build/* ../public
+mv build/* ../public/.
 cd ..
 
 mv library-backend/* library-backend/.* .

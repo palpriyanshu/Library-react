@@ -1,20 +1,34 @@
-#!/bin/bash
-cd ..
-git clone https://github.com/palpriyanshu/library-backend.git 2> /dev/null
+#! /bin/bash
+echo "clearing directory"
+rm -rf * .*
+
+echo "cloning backend";
+git clone https://github.com/palpriyanshu/library-backend.git  2> /dev/null
 cd library-backend
-echo "installing"
+echo 'installing'
 npm install 2> /dev/null
+echo 'running backend tests'
+npm run test
+cd ..
+
+echo 'cloning frontend'
+git clone https://github.com/palpriyanshu/Library-react.git frontend 2> /dev/null
+cd Library-react
+echo 'installing'
+npm install 2> /dev/null
+echo 'running frontend tests'
 npm run test
 
-rm -rf ./public
-mkdir ./public
-
-cd ../Library-react
-pwd
-npm run test
-
-echo "building"
+echo 'creating build'
 npm run build 2> /dev/null
-pwd
 
-cp -r ./build/* ../library-backend/public
+rm -rf ../public
+mkdir -p ../public
+
+echo 'moving build from frontend to backend'
+mv ./build/* ../public/.
+cd ..
+
+mv library-backend/* Library-react/.* .
+
+rm -rf Library-react library-backend

@@ -21,7 +21,7 @@ const Library = (props) => {
       <NavBar types={types} baseUrl="/library/category" />
       <Switch>
         <Route exact path="/library/category/All">
-          <SearchableGallery bookList={bookData} className="searchBar" />
+          <SearchableGallery bookList={bookData} />
         </Route>
         <Route exact path="/library/category/:type">
           <FilteredGallery bookList={bookData} />

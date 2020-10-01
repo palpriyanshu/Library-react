@@ -1,6 +1,32 @@
 import React, { useState } from 'react';
 import BookGallery from './BookGallery.js';
+import styled from 'styled-components';
 import searchIcon from '../icons/searchBar.png';
+
+const SearchIcon = styled.img`
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+`;
+
+const SearchBar = styled.input`
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 5px;
+  font-size: 18px;
+  color: #555;
+  border-bottom: 1px solid #888;
+`;
+
+const SearchArea = styled.div`
+  margin: 20px;
+  left: 70vw;
+  top: 1vh;
+  position: absolute;
+  display: flex;
+`;
 
 const SearchableGallery = (props) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -20,11 +46,11 @@ const SearchableGallery = (props) => {
 
   return (
     <div>
-      <div className={props.className}>
-        <input onChange={handleChange} value={searchTerm} />
-        <img src={searchIcon} alt="searchBar" />
-      </div>
-      <BookGallery className={props.className} bookList={filteredList} />
+      <SearchArea>
+        <SearchBar onChange={handleChange} value={searchTerm}></SearchBar>
+        <SearchIcon src={searchIcon} alt="searchBar"></SearchIcon>
+      </SearchArea>
+      <BookGallery bookList={filteredList} />
     </div>
   );
 };

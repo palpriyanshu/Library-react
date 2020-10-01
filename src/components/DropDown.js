@@ -5,10 +5,17 @@ import { fetchApis } from '../api/fetchApis.js';
 
 const StyledLink = styled(Link)`
   color: black;
+  text-decoration: none;
 `;
 
-const LogOutOption = styled.div`
+const DropDownRow = styled.div`
   cursor: 'pointer';
+  padding: 10px;
+  border-bottom: 1px solid #aaa;
+
+  &:hover {
+    background-color: #ccc;
+  }
 `;
 
 const DropDown = (props) => {
@@ -22,10 +29,12 @@ const DropDown = (props) => {
 
   return (
     <div className={props.className}>
-      <div>
+      <DropDownRow>
         <StyledLink to="/library/yourBooks">Your books</StyledLink>
-      </div>
-      <LogOutOption onClick={handleLogOut}>Log out</LogOutOption>
+      </DropDownRow>
+      <DropDownRow>
+        <div onClick={handleLogOut}>Log out</div>
+      </DropDownRow>
     </div>
   );
 };

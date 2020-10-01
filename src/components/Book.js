@@ -25,6 +25,7 @@ const BookName = styled(Link)`
   color: #444;
   text-align: center;
   margin: 10px;
+  text-decoration: none;
 
   &:hover {
     color: #222;

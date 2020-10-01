@@ -17,10 +17,18 @@ const StyledHeaderWithProfile = styled.div`
   box-shadow: 0 1.6px 0 #ccc;
 `;
 
+const DropDownStyle = styled(DropDown)`
+  right: 30px;
+  border: 1px solid #aaa;
+  background-color: white;
+  cursor: pointer;
+  position: absolute;
+  z-index: 9;
+  display: ${(props) => (props.isVisible ? 'block' : 'none')};
+`;
+
 const AvatarDiv = ({ avatarUrl, setUser }) => {
   const [isVisible, setVisibility] = useState(false);
-  const dropDownStyle = isVisible ? 'show' : 'hide';
-
   return (
     <div>
       <Avatar
@@ -28,7 +36,7 @@ const AvatarDiv = ({ avatarUrl, setUser }) => {
         alt="avatar"
         onClick={() => setVisibility(!isVisible)}
       ></Avatar>
-      <DropDown className={`${dropDownStyle} dropDown`} setUser={setUser} />
+      <DropDownStyle isVisible={isVisible} setUser={setUser}></DropDownStyle>
     </div>
   );
 };

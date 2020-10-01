@@ -11,6 +11,8 @@ const StyledNavBar = styled.div`
 const StyledNavLink = styled(NavLink)`
   color: #444;
   font-size: 20px;
+  text-decoration: none;
+  margin-right: 20px;
 
   &:hover {
     color: #111;

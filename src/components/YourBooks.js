@@ -28,6 +28,11 @@ const YourBookBox = styled.div`
   margin: 10px;
 `;
 
+const Msg = styled.h3`
+  margin-top: 20vh;
+  margin-left: 70vh;
+`;
+
 const ReturnBook = (props) => {
   const handleClick = () => {
     fetchApis.returnBook(props.bookId).then((reply) => {
@@ -52,11 +57,7 @@ const YourBook = (props) => {
   }
 
   if (!myBooks.length) {
-    return (
-      <h3 style={{ marginTop: '20vh', marginLeft: '70vh' }}>
-        You don't have any book
-      </h3>
-    );
+    return <Msg>You don't have any book</Msg>;
   }
   const booksDiv = myBooks.map((book) => (
     <StyledYourBook key={book.id}>

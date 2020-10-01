@@ -1,4 +1,5 @@
 #!/bin/bash
+cd ..
 git clone https://github.com/palpriyanshu/library-backend.git 2> /dev/null
 cd library-backend
 echo "installing"
@@ -8,12 +9,8 @@ npm run test
 rm -rf ./public
 mkdir ./public
 
-cd ..
+cd ../Library-react
 pwd
-git clone https://github.com/palpriyanshu/Library-react.git 2> /dev/null
-cd library-react
-echo "installing"
-npm install 2> /dev/null
 npm run test
 
 echo "building"

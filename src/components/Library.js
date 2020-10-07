@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route, useHistory } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import FilteredGallery from './FilteredGallery';
 import SearchableGallery from './SearchableGallery';
 import NavBar from './NavBar';
 import { fetchApis } from '../api/fetchApis';
 
-const AddBtn = styled.button`
+const AddBtn = styled(Link)`
   color: #444;
   border: none;
+  text-decoration: none;
   outline: none;
   background-color: white;
-  position: fixed;
+  position: absolute;
   right: 120px;
   top: 2vh;
   cursor: pointer;
@@ -25,7 +26,6 @@ const AddBtn = styled.button`
 const Library = (props) => {
   const types = ['All', 'Fiction', 'History', 'Fantassy', 'Art', 'Religion'];
   const [bookData, setBookData] = useState(null);
-  const history = useHistory();
 
   useEffect(() => {
     fetchApis.getBooks().then(setBookData);
@@ -35,15 +35,9 @@ const Library = (props) => {
     return <p>Loading</p>;
   }
 
-  const handleClick = () => {
-    history.push('/library/addBook');
-  };
-
   return (
     <div>
-      <AddBtn setBookData={setBookData} onClick={handleClick}>
-        +
-      </AddBtn>
+      <AddBtn to="/library/addBook">+</AddBtn>
       <NavBar types={types} baseUrl="/library/category" />
       <Switch>
         <Route exact path="/library/category/All">

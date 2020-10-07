@@ -1,9 +1,27 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import styled from 'styled-components';
 import Back from './Back';
+import Button from './Button';
 import { fetchApis } from '../api/fetchApis';
 
-const InputBox = ({ type, label, name, id }) => {
+const BookRegistrationForm = styled.div`
+  margin-left: 470px;
+  padding: 20px;
+  box-shadow: 4px 4px 10px #ccc;
+  width: 500px;
+
+  &:hover {
+    box-shadow: 4px 4px 10px #888;
+  }
+`;
+
+const BookCoverImage = styled.img`
+  margin: 0.3vh 0.3vh 1vh 0.3vh;
+  height: 32vh;
+`;
+
+const InputBox = ({ type, label, name }) => {
   const [value, setValue] = useState('');
 
   const handleChange = (event) => {
@@ -46,16 +64,12 @@ const AddBook = (props) => {
     fetchApis.addBook(data).then(() => history.goBack());
   };
 
-  const style = {
-    margin: '0.3vh 0.3vh 1vh 0.3vh',
-    height: '32vh',
-  };
-
   return (
-    <div>
+    <BookRegistrationForm>
+      <h2>Book Details</h2>
       <form onSubmit={handleSubmit}>
         <br />
-        <InputBox type="text" label="Title" name="title" id="title" />
+        <InputBox type="text" label="Title" name="title" />
         <InputBox type="text" label="ISBN" name="id" />
         <InputBox type="text" label="Author" name="author" />
         <InputBox type="text" label="Genre" name="Genre" />
@@ -66,13 +80,15 @@ const AddBook = (props) => {
         <label htmlFor="img">Image</label>
         <input type="file" name="image" onChange={handleChange} required />
         <div>
-          {imageUrl && <img src={imageUrl} alt="preview" style={style} />}
+          {imageUrl && (
+            <BookCoverImage src={imageUrl} alt="preview"></BookCoverImage>
+          )}
         </div>
         <br />
-        <button type="submit">Submit</button>
+        <Button type="submit" backgroundColor="seagreen" text="Submit" />
         <Back />
       </form>
-    </div>
+    </BookRegistrationForm>
   );
 };
 

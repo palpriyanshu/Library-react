@@ -5,6 +5,7 @@ import BookDetail from './components/BookDetail.js';
 import Library from './components/Library';
 import HomePage from './components/HomePage';
 import YourBook from './components/YourBooks';
+import AddBook from './components/AddBook';
 import User from './context/UserContext';
 import './App.css';
 import { fetchApis } from './api/fetchApis';
@@ -26,6 +27,7 @@ const App = (props) => {
           <PrivateRoute path="/library/category" component={Library} />
           <PrivateRoute path="/library/detail/:id" component={BookDetail} />
           <PrivateRoute path="/library/yourBooks" component={YourBook} />
+          <PrivateRoute path="/library/addBook" component={AddBook} />
         </Switch>
       </BrowserRouter>
     </User.Provider>

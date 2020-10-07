@@ -12,12 +12,10 @@ const SearchIcon = styled.img`
 const SearchBar = styled.input`
   outline: none;
   border: none;
-  border-bottom: 1px solid #aaa;
   border-radius: 4px;
   padding: 5px;
   font-size: 18px;
   color: #555;
-  border-bottom: 1px solid #888;
 `;
 
 const SearchArea = styled.div`
@@ -26,6 +24,11 @@ const SearchArea = styled.div`
   top: 1vh;
   position: absolute;
   display: flex;
+  border-bottom: 1px solid #ccc;
+
+  &:hover {
+    border-bottom: 1px solid #555;
+  }
 `;
 
 const SearchableGallery = (props) => {

@@ -73,7 +73,7 @@ const AddBook = (props) => {
         <InputBox type="text" label="ISBN" name="id" />
         <InputBox type="text" label="Author" name="author" />
         <InputBox type="text" label="Genre" name="Genre" />
-        <InputBox type="text" label="Page Count" name="pageCount" />
+        <InputBox type="number" label="Page Count" name="pageCount" />
         <InputBox type="text" label="Description" name="description" />
         <InputBox type="text" label="Publisher" name="publisher" />
         <InputBox type="date" label="Published At" name="publishedDate" />

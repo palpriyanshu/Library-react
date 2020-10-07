@@ -8,6 +8,7 @@ const Avatar = styled.img`
   width: 40px;
   height: 40px;
   margin-right: 40px;
+  cursor: pointer;
 `;
 
 const StyledHeaderWithProfile = styled.div`

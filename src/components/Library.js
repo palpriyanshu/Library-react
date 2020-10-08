@@ -23,13 +23,32 @@ const AddBtn = styled(Link)`
   }
 `;
 
+const LibrarianTag = styled.div`
+  color: #444;
+  border: none;
+  text-decoration: none;
+  outline: none;
+  background-color: white;
+  position: absolute;
+  right: 480px;
+  top: 5vh;
+  font-size: 24px;
+`;
+
 const Library = (props) => {
   const types = ['All', 'Fiction', 'History', 'Fantassy', 'Art', 'Religion'];
   const [bookData, setBookData] = useState(null);
+  const [isLibrarian, setLibrarian] = useState(false);
 
   useEffect(() => {
     fetchApis.getBooks().then(setBookData);
   }, []);
+
+  useEffect(() => {
+    fetchApis.isLibrarian().then(setLibrarian);
+  }, []);
+
+  console.log(isLibrarian);
 
   if (!bookData) {
     return <p>Loading</p>;
@@ -37,7 +56,14 @@ const Library = (props) => {
 
   return (
     <div>
-      <AddBtn to="/library/addBook">+</AddBtn>
+      {isLibrarian ? (
+        <div>
+          <LibrarianTag>Librarian</LibrarianTag>
+          <AddBtn to="/library/addBook">+</AddBtn>
+        </div>
+      ) : (
+        <div></div>
+      )}
       <NavBar types={types} baseUrl="/library/category" />
       <Switch>
         <Route exact path="/library/category/All">

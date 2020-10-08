@@ -27,6 +27,7 @@ const fetchApis = {
   getBook: (id) => fetch(`/getBook/${id}`).then((details) => details.json()),
   returnBook: (id) =>
     fetch(`/returnBook`, postOption({ id })).then((reply) => reply.json()),
+  isLibrarian: () => fetch(`/api/isLibrarian`).then((reply) => reply.json()),
   addBook: (book) =>
     fetch('/api/addBook', postOptionToAddBook(book)).then((reply) =>
       reply.json()

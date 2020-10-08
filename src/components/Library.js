@@ -45,7 +45,7 @@ const Library = (props) => {
   }, []);
 
   useEffect(() => {
-    fetchApis.isLibrarian().then(setLibrarian);
+    fetchApis.isLibrarian().then(({ reply }) => setLibrarian(reply));
   }, []);
 
   console.log(isLibrarian);

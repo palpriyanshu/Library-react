@@ -13,10 +13,10 @@ const AddBtn = styled(Link)`
   outline: none;
   background-color: white;
   position: absolute;
-  right: 120px;
+  right: 8.4vw;
   top: 2vh;
   cursor: pointer;
-  font-size: 44px;
+  font-size: 5.2vh;
 
   &:hover {
     color: black;
@@ -30,9 +30,9 @@ const LibrarianTag = styled.div`
   outline: none;
   background-color: white;
   position: absolute;
-  right: 480px;
+  right: 30vw;
   top: 5vh;
-  font-size: 24px;
+  font-size: 3vh;
 `;
 
 const Library = (props) => {
@@ -47,8 +47,6 @@ const Library = (props) => {
   useEffect(() => {
     fetchApis.isLibrarian().then(({ reply }) => setLibrarian(reply));
   }, []);
-
-  console.log(isLibrarian);
 
   if (!bookData) {
     return <p>Loading</p>;
